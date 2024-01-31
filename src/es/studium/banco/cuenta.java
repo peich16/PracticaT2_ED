@@ -1,104 +1,125 @@
 package es.studium.banco;
+
 /**
- ** Clase POJO cliente
- * Clase que genera a los clientes
- * @author Pablo Fernández De Los Ríos Mesa
+ * * Clase POJO cuenta
+ * clase que genera la cuenta
+ * @author Pablo FernÃ¡ndez De Los Rios Mesa
  * @version v3
  */
-public class cliente
+
+public class cuenta
 {
-// Aquí van los atributos
-	
+//Los atributos
 	/**
-	 * Son los elementos que definen la clase cliente.
+	 * Son los elementos que definen la clase cuenta.
 	 */
-	private String dni;
-	private String nombre;
-	private String direccion;
 	
+	public int tipo;
+	public int saldo;
+	private cliente cliente;
 	
-// Pongo el constructor vacío
+//Constructor vacio
+	
 	/**
 	 * Constructor por defecto
 	 */
 	
-	public cliente()
+	public cuenta()
 	{
-		dni = "";
-		nombre = "";
-		direccion = "";
+		tipo= 0;
+		saldo= 0;
+		cliente = new cliente();
 	}
-	// El constructor por parámetros (constructor por campos y metodos get and set)
+	
+	//El constructor por parametros (metodos get y set)
 	
 	/**
-	 * Constructor con todos los parámetros
-	 * @param dni Se asigna al atributo dni
-	 * @param nombre Se asigna al atributo nombre
-	 * @param dirección Se asigna al atributo direccion
+	 * Constructor con todos los parametros
+	 * @param tipo Se asigna al atributo tipo
+	 * @param saldo Se asigna al atributo saldo
+	 * @param cliente Se asigna al atributo cliente
 	 */
 	
 
-public cliente(String dni, String nombre, String dirección)
-{
-	this.dni = dni;
-	this.nombre = nombre;
-	this.direccion = dirección;
-}
+	public cuenta(int tipo, int saldo, es.studium.banco.cliente cliente)
+	{
+		this.tipo = tipo;
+		this.saldo = saldo;
+		this.cliente = cliente;
+		
+		
+	}
 
-/**
- * Metodo get del atributo dni
- * @return Devuelve el valor del atributo dni
- */
-
-public String getDni()
-{
-	return dni;
-}
-
-/**
- * Metodo set del atributo dni
- * @param dni Se asigna al atributo dni
- */
-public void setDni(String dni)
-{
-	this.dni = dni;
-}
-/**
- * Metodo get del atributo nombre
- * @return Devuelve el valor del atributo nombre
- */
-public String getNombre()
-{
-	return nombre;
-}
-
-/**
- * Metodo set del atributo nombre
- * @param nombre Devuelve el valor del atributo nombre
- */
-public void setNombre(String nombre)
-{
-	this.nombre = nombre;
-}
-
-/**
- * Metodo get del atributo direccion
- * @return Devuelve el valor del atributo direccion
- */
-public String getDireccion()
-{
-	return direccion;
-}
-
-/**
- * Metodo set del atributo direccion
- * @param direccion Devuelve el valor del atributo direccion
- */
-public void setDireccion(String direccion)
-{
-	this.direccion = direccion;
-}
+	/**
+	 * Metodo get del atributo tipo
+	 * @return Devuelve el valor del atributo tipo
+	 */
 	
+	public int getTipo()
+	{
+		return tipo;
+	}
+
+	/**
+	 * 	Metodo set del atributo tipo
+	 * @param tipo Se asigna al atributo tipo
+	 */
+	public void setTipo(int tipo)
+	{
+		this.tipo = tipo;
+	}
+	/**
+	 * Metodo get del atributo saldo
+	 * @return Devuelve el valor del atributo saldo
+	 */
+	public int getSaldo()
+	{
+		return saldo;
+	}
+	/**
+	 * Metodo set del atributo saldo
+	 * @param saldo Se asigna al atributo saldo
+	 */
+
+
+	public void setSaldo(int saldo)
+	{
+		this.saldo = saldo;
+	}
+	
+	/**
+	 * MÃ©todo get del atributo cliente
+	 * @return Devuelve el valor del atributo cliente
+	 */
+
+	public cliente getCliente()
+	{
+		return cliente;
+	}
+	
+	/**
+	 * MÃ©todo set del atributo cliente
+	 * @param cliente  Se asigna al atributo cliente
+	 */
+
+	public void setCliente(cliente cliente)
+	{
+		this.cliente = cliente;
+	}
+
+	public void ingresarDinero(int gananciaSorteoAntonio)
+	{
+		
+		
+	}
+
+	public void retirarDinero(int pagoHaciendaBeatriz)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
 
 	
 	
