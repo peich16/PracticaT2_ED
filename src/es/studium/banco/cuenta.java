@@ -1,65 +1,107 @@
 package es.studium.banco;
-
-public class cuenta
+/**
+ ** Clase POJO cliente
+ * Clase que genera a los clientes
+ * @author Pablo Fernández De Los Ríos Mesa
+ * @version v3
+ */
+public class cliente
 {
-    //Los atributos
-    public int tipo;
-    public int saldo;
-    private cliente cliente;
+// Aquí van los atributos
+	
+	/**
+	 * Son los elementos que definen la clase cliente.
+	 */
+	private String dni;
+	private String nombre;
+	private String direccion;
+	
+	
+// Pongo el constructor vacío
+	/**
+	 * Constructor por defecto
+	 */
+	
+	public cliente()
+	{
+		dni = "";
+		nombre = "";
+		direccion = "";
+	}
+	// El constructor por parámetros (constructor por campos y metodos get and set)
+	
+	/**
+	 * Constructor con todos los parámetros
+	 * @param dni Se asigna al atributo dni
+	 * @param nombre Se asigna al atributo nombre
+	 * @param dirección Se asigna al atributo direccion
+	 */
+	
 
-    //Constructor vacío
-    public cuenta()
-    {
-        tipo= 0;
-        saldo= 0;
-        cliente = new cliente();
-    }
+public cliente(String dni, String nombre, String dirección)
+{
+	this.dni = dni;
+	this.nombre = nombre;
+	this.direccion = dirección;
+}
 
-    //El constructor por parámetros (métodos get y set)
-    public cuenta(int tipo, int saldo, es.studium.banco.cliente cliente)
-    {
-        this.tipo = tipo;
-        this.saldo = saldo;
-        this.cliente = cliente;
-    }
+/**
+ * Metodo get del atributo dni
+ * @return Devuelve el valor del atributo dni
+ */
 
-    public int getTipo()
-    {
-        return tipo;
-    }
+public String getDni()
+{
+	return dni;
+}
 
-    public void setTipo(int tipo)
-    {
-        this.tipo = tipo;
-    }
+/**
+ * Metodo set del atributo dni
+ * @param dni Se asigna al atributo dni
+ */
+public void setDni(String dni)
+{
+	this.dni = dni;
+}
+/**
+ * Metodo get del atributo nombre
+ * @return Devuelve el valor del atributo nombre
+ */
+public String getNombre()
+{
+	return nombre;
+}
 
-    public int getSaldo()
-    {
-        return saldo;
-    }
+/**
+ * Metodo set del atributo nombre
+ * @param nombre Devuelve el valor del atributo nombre
+ */
+public void setNombre(String nombre)
+{
+	this.nombre = nombre;
+}
 
-    public void setSaldo(int saldo)
-    {
-        this.saldo = saldo;
-    }
+/**
+ * Metodo get del atributo direccion
+ * @return Devuelve el valor del atributo direccion
+ */
+public String getDireccion()
+{
+	return direccion;
+}
 
-    public cliente getCliente()
-    {
-        return cliente;
-    }
+/**
+ * Metodo set del atributo direccion
+ * @param direccion Devuelve el valor del atributo direccion
+ */
+public void setDireccion(String direccion)
+{
+	this.direccion = direccion;
+}
+	
 
-    public void setCliente(cliente cliente)
-    {
-        this.cliente = cliente;
-    }
-
-    // Método para ingresar dinero en la cuenta
-    public void ingresarDinero(int cantidad) {
-        this.saldo += cantidad;
-    }
-
-    // Método para retirar dinero de la cuenta
-    public void retirarDinero(int cantidad) {
-        this.saldo -= cantidad;
-    }
+	
+	
+	
+	
 }
