@@ -1,76 +1,63 @@
 package es.studium.banco;
-
+/**
+ * Clase POJO testBanco
+ * @author Pablo FernÃ¡ndez De Los RÃ­os Mesa
+ * @version v3
+ */
 public class testBanco
 {
-	//Definimos constantes para los valores que se utilizan en el código
 
-	
-    private static final int SALDO_INICIAL = 100;
-    private static final int TRANSFERENCIA_BEATRIZ_A_ANTONIO = 50;
-    private static final int GANANCIA_SORTEO_ANTONIO = 100;
-    private static final int PAGO_HACIENDA_BEATRIZ = 30;
-    private static final int TRANSFERENCIA_ANTONIO_A_BEATRIZ = 50;
 
 	public static void main(String[] args)
 	{
-	
-		//Creamos a los clientes
+		//Antonio y Beatriz se hacen clientes del banco
 		
 		cliente antonio = new cliente ("123456789Z", "Antonio Alonso", "Av. Pueblo Saharahui s/n");
 		cliente beatriz = new cliente ("987654321A", "Beatriz Benitez", "Calle Sol 4");
-
 		
-		//Creamos las cuentas de Antonio y Beatriz con sus saldos iniciales
-
+		// Las cuentas por defecto dsiponen de un saldo de 100 euros
 		
-		cuenta cuentaAntonio = new cuenta(48151, SALDO_INICIAL, antonio);
-		cuenta cuentaBeatriz = new cuenta(62342, SALDO_INICIAL, beatriz);
-
-		// Consultamos los saldos de las cuentas
+		cuenta cuentaAntonio = new cuenta(48151, 100, antonio);
+		cuenta cuentaBeatriz = new cuenta(62342, 100, beatriz);
 		
-		consultarSaldos(cuentaAntonio, cuentaBeatriz);
-
-		// Beatriz transfiere 50 euros a la cuenta de Antonio
+		//Los dos consultan sus saldos
 		
-		transferirDinero(cuentaBeatriz, cuentaAntonio, TRANSFERENCIA_BEATRIZ_A_ANTONIO);
-
-		// Consultamos los saldos de las cuentas después de la transferencia
 		
-		consultarSaldos(cuentaAntonio, cuentaBeatriz);
-
-		 // Antonio ingresa 100 euros que ha ganado en un sorteo/rifa
+		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + "tiene " + cuentaAntonio.getSaldo() + " euros." );
+		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() +  "tiene " +  cuentaBeatriz.getSaldo() + " euros.");
 		
-		cuentaAntonio.ingresarDinero(GANANCIA_SORTEO_ANTONIO);
-
-		// Beatriz paga 30 euros a Hacienda
+		// Beatriz le transfiere 50 euros a la cuenta de Antonio
 		
-		cuentaBeatriz.retirarDinero(PAGO_HACIENDA_BEATRIZ);
-
-		// Consultamos los saldos de las cuentas después de los ingresos y pagos
+		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo()-50);
+		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo()+50);
 		
-		consultarSaldos(cuentaAntonio, cuentaBeatriz);
-
-		// Antonio transfiere 50 euros a Beatriz
+		// A continuaciÃ³n ambos consultan los saldos
 		
-		transferirDinero(cuentaAntonio, cuentaBeatriz, TRANSFERENCIA_ANTONIO_A_BEATRIZ);
-
-		// Consultamos los saldos de las cuentas después de la última transferencia
+		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + "tiene " + cuentaAntonio.getSaldo() + " euros." );
+		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() +  "tiene " +  cuentaBeatriz.getSaldo() + " euros.");
 		
-		consultarSaldos(cuentaAntonio, cuentaBeatriz);
+		// Antonio gana 100 euros en un sorteo rifa y lo ingresa en cuenta
+		
+		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo()+100);
+		
+		// Beatriz tiene que pagar 30euros a hacienda 
+		
+		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo()-30);
+		
+		// Vuelven a consultar los saldos ya que son desconfiados
+		
+		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + "tiene " + cuentaAntonio.getSaldo() + " euros." );
+		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() +  "tiene " +  cuentaBeatriz.getSaldo() + " euros.");
+		
+		// Antonio transfiere 50 euros a Beatriz y ambos consultan sus saldos
+		
+		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo()-50);
+		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo()+50);
+		
+		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + "tiene " + cuentaAntonio.getSaldo() + " euros." );
+		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() +  "tiene " +  cuentaBeatriz.getSaldo() + " euros.");
+		
 	}
 
-		 // Método para consultar los saldos de las cuentas
-	
-    private static void consultarSaldos(cuenta cuenta1, cuenta cuenta2) {
-        System.out.println("La cuenta de " + cuenta1.getCliente().getNombre() + " tiene " + cuenta1.getSaldo() + " euros." );
-        System.out.println("La cuenta de " + cuenta2.getCliente().getNombre() +  " tiene " +  cuenta2.getSaldo() + " euros.");
-    }
-		
-		// Método para transferir dinero de una cuenta a otra
-		
-    private static void transferirDinero(cuenta cuentaOrigen, cuenta cuentaDestino, int cantidad) {
-        cuentaOrigen.retirarDinero(cantidad);
-        cuentaDestino.ingresarDinero(cantidad);
-    }
 }
 
